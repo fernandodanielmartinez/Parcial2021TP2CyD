@@ -20,3 +20,13 @@ const beers = [
     { name: 'Stolen Fruit', abv: 4.6, label: 'https://s3.amazonaws.com/brewerydbapi/beer/YGT30k/upload_uVCHP7-large.png', type: 'Wheat' },
 ];
 
+function changeLabel() {
+    beers.forEach(beer => {
+        newLabel = beer.label.replace('https://s3.amazonaws.com/brewerydbapi','https://tecnoshare.sharepoint.com/sites')
+        newLabel = newLabel.replace(newLabel.substring(newLabel.lastIndexOf('/')+1), beer.name.toLowerCase()+'.png').replace(' ', '_')
+        beer.label = newLabel
+    })
+    console.log(beers)
+}
+
+changeLabel()
